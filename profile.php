@@ -65,7 +65,7 @@ require_once 'components/navbar.php';
                                     <tr>
                                         <!-- <form action="del.php" method="POST"> -->
                                         <th>
-                                            <button type="submit" name="stud_delete_multiple_btn" class="btn btn-danger">Delete</button>
+                                            <button type="submit" name="stud_delete_multiple_btn" class="btn btn-danger" value="<?= $row['id']; ?>">Delete</button>
                                         </th>
                                     <!-- </form> -->
                                         <!-- <th>ID</th>
@@ -94,9 +94,9 @@ require_once 'components/navbar.php';
                                                 ?>
                                                 <!-- <div class="checkbox-group required"> -->
                                                 <tr>
-                                                    <td style="width:10px; text-align: center;">
+                                                    <!-- <td style="width:10px; text-align: center;">
                                                         <input type="checkbox" name="stud_delete_id[]" value="<?= $row['id']; ?>">
-                                                    </td>
+                                                    </td> -->
                                                     <!-- <td><?= $row['id']; ?></td> -->
                                                     <!-- <td><?= $row['user_id']; ?></td> -->
                                                     <td><?= $row['title']; ?></td>
