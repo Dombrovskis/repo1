@@ -3,6 +3,20 @@ session_start();
 
 
 require_once 'components/navbar.php';
+
+if(isset($_POST['submit'])){
+    
+    $email = $_POST['logEmail'];
+    $password = $_POST['logPassword'];
+
+    if(empty($email)){
+        echo '<script>alert("Email is Empty")</script>';
+    }
+    if(empty($password)){
+        echo '<script>alert("Password is Empty")</script>';
+    }
+}
+
     $dangerr ="";
     $success ="";
     $wrongpass ="";
@@ -48,17 +62,17 @@ require_once 'components/navbar.php';
         <h1>Login</h1>
         <?php echo $success,$dangerr,$wrongpass?> 
         
-        <form action="" onsubmit="return validateForm()" method="POST">
+        <form action="" method="POST">
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="logEmail"/>
+                <label for="exampleInputEmail1" class="form-label"><h3>Email address</h3></label>
+                <input type="email"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="logEmail"/>
                 <div id="emailHelp" class="form-text">
                     We'll  share your email with anyone else.
                 </div>
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" required class="form-control" id="exampleInputPassword1"name="logPassword" />
+                <label for="exampleInputPassword1" class="form-label"><h3>Password</h3></label>
+                <input type="password"  class="form-control" id="exampleInputPassword1"name="logPassword" />
             </div>
             <!-- <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1" />

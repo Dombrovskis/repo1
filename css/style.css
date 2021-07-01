@@ -47,3 +47,11 @@ h4 {
   font-family: "Big Shoulders Display", cursive;
   font-size: 2em;
 }
+
+h3 {
+  background-color: hsla(0, 0%, 0%, 0.6) !important;
+  color: rgb(183, 189, 248) !important;
+  box-sizing: border-box;
+  border: 10px solid rgb(0, 0, 0, 0.2);
+  font-size: 1.1em;
+}

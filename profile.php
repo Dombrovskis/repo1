@@ -1,20 +1,23 @@
 <?php
-
 session_start();
+
 //if check login
 if($_SESSION['logedin'] !== TRUE){
     header('location: login.php');
-        exit();
+    exit();
 }
+// if(isset ($_POST ['submit'])){
+//     session_destroy();
+//     header('refresh:1; login.php');
+// }
 require_once 'create.php';
 require_once 'components/navbar.php';
+
 ?>
-
-<h2>
-  <?php echo "Hello " . $_SESSION ['email']; echo " !"?>
-</h2>
-
-
+<div class ="container">
+    <h2>
+        <?php echo "Welcome back  " . $_SESSION ['email']; echo " !"?>
+    </h2>
 <body>
     
     <div class="container">
@@ -50,12 +53,12 @@ require_once 'components/navbar.php';
             
             </div>
             
-            <button type="submit" class="btn btn-primary" name="create" >
+            <button type="submit" class="btn btn-success" name="create" >
                 Save new Task
             </button>    
         </form>
-        </div>
-            <br>    
+</div>
+            <br>
             <br>
                 <div class="card mt-4">
                     <div class="card-body">
@@ -63,13 +66,8 @@ require_once 'components/navbar.php';
                             <table class="table table-bordered table-striped">
                                 <tbody>
                                     <tr>
-                                        <!-- <form action="del.php" method="POST"> -->
                                         <th>
-                                            <button type="submit" name="stud_delete_multiple_btn" class="btn btn-danger" value="<?= $row['id']; ?>">Delete</button>
                                         </th>
-                                    <!-- </form> -->
-                                        <!-- <th>ID</th>
-                                        <th>Name</th> -->
                                         <th style=" text-align: center;">My Task</th>
                                         <th>Creation Date</th>
                                         <th>
@@ -83,66 +81,26 @@ require_once 'components/navbar.php';
                                 <tbody>
                                     <?php
                                         require_once 'db.php';
-
                                         $query = "SELECT * FROM posts";
                                         $query_run  = mysqli_query($conn, $query);
-
-                                        if(mysqli_num_rows($query_run) > 0)
-                                        {
-                                            foreach($query_run as $row)
-                                            {
+                                        if(mysqli_num_rows($query_run) > 0) {
+                                            foreach($query_run as $row) {
                                                 ?>
-                                                <!-- <div class="checkbox-group required"> -->
                                                 <tr>
-                                                    <!-- <td style="width:10px; text-align: center;">
-                                                        <input type="checkbox" name="stud_delete_id[]" value="<?= $row['id']; ?>">
-                                                    </td> -->
-                                                    <!-- <td><?= $row['id']; ?></td> -->
-                                                    <!-- <td><?= $row['user_id']; ?></td> -->
+                                                    <td style="width:10px; text-align: center;">
+                                                    </td>
+
                                                     <td><?= $row['title']; ?></td>
                                                     <td><?= $row['created_at']; ?></td>
-                                                    <!-- <form action="edit.php" method="POST">
-                                                    <td><input type="text" class="form-control" name="edit"/></td>
-
-                                                    <td><button type="submit" name="edit" class="btn btn-success" value="<?= $row['id']; ?>">Edit</button></td>
-                                                    </form> -->
-
-                                                </tr>   
-
-                                                <!-- <div> -->
-                                                     <!-- <a href="http://jquery.com/">jQuery</a>
-                                                        <script src="jquery.js"></script>
-                                                        <script>
-                                                    
-                                                        $( document ).ready(function() {
-                                                            $( "a" ).click(function( event ) {
-                                                                alert( "The link will no longer take you to jquery.com" );
-                                                                event.preventDefault();
-                                                            });
-                                                        });
-                                                    
-                                                        </script>
-                                                        <script >
-                                                            $cbx_group = $("input:checkbox[name^='group']");
-                                                                $cbx_group.on("click", function() {
-                                                                    if ($cbx_group.is(":checked")) {
-                                                                        // checkboxes become unrequired as long as one is checked
-                                                                        $cbx_group.prop("required", false).each(function() {
-                                                                            this.setCustomValidity("");
-                                                                        });
-                                                                    } else {
-                                                                        // require checkboxes and set custom validation error message
-                                                                        $cbx_group.prop("required", true).each(function() {
-                                                                            this.setCustomValidity("Please select at least one checkbox.");
-                                                                        });
-                                                                    }
-                                                                });
-                                                        </script> -->
-
-
-
-                                                    
-                                                    
+                                                    <td>
+                                                        <a class="btn btn-warning" href="./update.php?id=<?= $row['id']; ?>">
+                                                            Edit
+                                                        </a>
+                                                    </td>
+                                                    <th>
+                                                        <button type="submit" name="stud_delete_multiple_btn" value="<?= $row['id']; ?>" class="btn btn-danger">Delete</button>
+                                                    </th>
+                                                </tr>
                                                 <?php 
                                             }
                                         }
@@ -158,19 +116,26 @@ require_once 'components/navbar.php';
                                 </tbody>
                             </table>
                         </form>
+                   
+                   
                     </div>
+                
+                                         <form action="" method="post">
+                                    <div class="d-grid gap-2">
+                                    <button class="btn btn-danger" value="Submit" type="submit" name="delete">DELETE ALL TASKS</button>
+                                    </div></form>
+
+                                            
+                
                 </div>
             </div>
             
         </div>
     </div>
-
-
-
 <?php
 require_once 'db.php';
 
-if(isset($_POST['delete_all'])){
+if(isset($_POST['delete'])){
 $user_id = $_SESSION['id'];
 $del = "DELETE FROM posts WHERE user_id='$user_id'";
 
@@ -184,14 +149,9 @@ if ($conn->query($del) === TRUE) {
 }
 
 ?>
-<form action="" method="post">
-<button name="delete_all" style="margin-left:61px" class="btn btn-danger">DELETE ALL POSTS</button></form>
-<!-- 
-<form action="" method="post">
-<a href="last.php" class="done-button" name="delete">DELETE ALL POSTS 2</a></form>
-
 <?php
+
 require_once 'components/footer.php';
 ?>
 
-
+       
