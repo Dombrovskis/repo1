@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 01, 2021 at 12:20 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.5
+-- Host: localhost
+-- Generation Time: Jul 01, 2021 at 09:52 AM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 7.4.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,16 +31,17 @@ CREATE TABLE `posts` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`id`, `user_id`, `title`, `description`, `created_at`) VALUES
-(164, 59, 'Dell P2212H LED LCD  Professional Monitor 21,5zoll NEU OVP FullHD(1080p)', '', '2021-06-30 22:00:21');
+INSERT INTO `posts` (`id`, `user_id`, `title`, `created_at`) VALUES
+(2, 1, 'test', '2021-07-01'),
+(3, 1, 'gdfgdgfg', '2021-07-01'),
+(4, 1, 'test', '2021-07-01');
 
 -- --------------------------------------------------------
 
@@ -50,9 +51,9 @@ INSERT INTO `posts` (`id`, `user_id`, `title`, `description`, `created_at`) VALU
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `email` varchar(60) NOT NULL,
+  `password` varchar(60) NOT NULL,
+  `created_at` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -60,7 +61,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `created_at`) VALUES
-(59, 'q@q.lv', '$2y$10$zi49rnU6h.ofbKiS2nl5W.1aJJqOWYkYftW2MpeWjtVAwpJr7NDk2', '2021-06-30 22:00:11');
+(1, 'test@test.lv', '$2y$10$OUu4c2Zd1R/5N8XzlUdVUu1B.eHIobM6hs3Cs7IUqya.Ez6UjKHFm', '2021-07-01');
 
 --
 -- Indexes for dumped tables
@@ -86,13 +87,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

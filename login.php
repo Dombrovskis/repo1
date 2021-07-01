@@ -53,7 +53,7 @@ require_once 'components/navbar.php';
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
                 <input type="email" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="logEmail"/>
                 <div id="emailHelp" class="form-text">
-                    We'll never share your email with anyone else.
+                    We'll  share your email with anyone else.
                 </div>
             </div>
             <div class="mb-3">

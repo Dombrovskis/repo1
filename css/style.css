@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500&display=swap");
+
 body {
   margin: 0;
   padding: 0;
@@ -10,4 +12,38 @@ body {
   flex-direction: column;
   justify-content: center !important;
   align-items: center !important;
+}
+
+body {
+  background-image: url("https://images.unsplash.com/photo-1623707122047-6689c79e18ce?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+h1 {
+  background-color: hsla(0, 0%, 0%, 0.5) !important;
+  color: white !important;
+  box-sizing: border-box;
+  border: 3px solid rgb(0, 0, 0, 0.5);
+}
+::placeholder {
+  color: rgb(123, 126, 118) !important;
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+h2 {
+  background-color: hsla(0, 0%, 0%, 0.2) !important;
+  color: rgb(255, 255, 255) !important;
+  box-sizing: border-box;
+  border: 3px solid rgb(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 2em;
+  font-family: "Big Shoulders Display", cursive;
+}
+
+h4 {
+  text-align: center;
+  font-family: "Big Shoulders Display", cursive;
+  font-size: 2em;
 }

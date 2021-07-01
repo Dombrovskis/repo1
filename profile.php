@@ -10,9 +10,9 @@ require_once 'create.php';
 require_once 'components/navbar.php';
 ?>
 
-<h4  style=" text-align: center; margin-top: 40px;">
+<h2>
   <?php echo "Hello " . $_SESSION ['email']; echo " !"?>
-</h4>
+</h2>
 
 
 <body>
@@ -22,7 +22,7 @@ require_once 'components/navbar.php';
             <div class="col-md-12">
                 <div class="card mt-5">
                     <div class="card-header">
-                        <h4 style=" text-align: center;">Hope here will be todolist</h4>
+                        <h4>Welcome to your personal todolist</h4>
                     </div>
                 </div>
             </div>
@@ -46,14 +46,12 @@ require_once 'components/navbar.php';
             <form action="" onsubmit="return validateForm()" method="POST" >
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label"></label>
-                <input type="text"required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="title"/>
-                <div id="emailHelp" class="form-text">
-                    New todo list
-                </div>
+                <input type="text"required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter a New task Here" name="title"/>
+            
             </div>
             
             <button type="submit" class="btn btn-primary" name="create" >
-                Create a new Task.
+                Save new Task
             </button>    
         </form>
         </div>
@@ -103,11 +101,11 @@ require_once 'components/navbar.php';
                                                     <!-- <td><?= $row['user_id']; ?></td> -->
                                                     <td><?= $row['title']; ?></td>
                                                     <td><?= $row['created_at']; ?></td>
-                                                    <form action="edit.php" method="POST">
+                                                    <!-- <form action="edit.php" method="POST">
                                                     <td><input type="text" class="form-control" name="edit"/></td>
 
                                                     <td><button type="submit" name="edit" class="btn btn-success" value="<?= $row['id']; ?>">Edit</button></td>
-                                                    </form>
+                                                    </form> -->
 
                                                 </tr>   
 
